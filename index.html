@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapCut - Ultra HD Online Video Engine & Downloader</title>
+    <title>SnapCut - Free Online Video Downloader & Streaming App</title>
+    <!-- SEO Meta Tags for Google Search -->
+    <meta name="description" content="SnapCut is the ultimate online video downloader and streaming engine. Stream and download 4K videos from YouTube, TikTok, Instagram, and more for free.">
+    <meta name="keywords" content="SnapCut, video downloader, online video streaming, 4k video downloader, free video saver">
+    <meta name="author" content="SnapCut">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -64,7 +69,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .logo {
@@ -80,6 +85,39 @@
             color: #9aa0c0;
             font-size: 0.95rem;
             margin-top: 5px;
+        }
+
+        /* App Install Banner */
+        .install-banner {
+            background: linear-gradient(135deg, rgba(0,242,254,0.1), rgba(255,0,127,0.1));
+            border: 1px solid rgba(0,242,254,0.3);
+            border-radius: 16px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .install-banner p {
+            font-size: 0.9rem;
+            color: #00f2fe;
+        }
+
+        .btn-install {
+            background: #00f2fe;
+            color: #000;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-install:hover {
+            background: #fff;
         }
 
         /* Online URL Input Section */
@@ -244,9 +282,15 @@
             <p class="subtitle">Online Video Streaming & High-Speed Downloader Engine</p>
         </div>
 
+        <!-- Install App Banner for Users -->
+        <div class="install-banner">
+            <p>📱 Want SnapCut as a App on your Phone?</p>
+            <button class="btn-install" onclick="alert('To install: Tap browser menu (3 dots) and select \"Add to Home Screen\" or \"Install App\"!')">Install App</button>
+        </div>
+
         <!-- Search / Paste Input -->
         <div class="search-box">
-            <input type="text" id="onlineUrl" placeholder="Paste Online Video URL (e.g., MP4/Web media link)...">
+            <input type="text" id="onlineUrl" placeholder="Paste Online Video URL (YouTube, TikTok, Instagram)...">
             <button class="btn-fetch" onclick="loadOnlineVideo()">Stream & Extract ⚡</button>
         </div>
 
@@ -321,7 +365,6 @@
             const videoPlayer = document.getElementById('mainPlayer');
             const videoSource = document.getElementById('videoSource');
 
-            // Default fallback online sample video if input is empty
             const targetUrl = inputUrl !== "" ? inputUrl : "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
             status.style.display = "block";
@@ -335,7 +378,6 @@
                 downloadPanel.style.display = "block";
                 status.innerHTML = "✅ Online Stream Loaded! Video is ready to play and download.";
 
-                // Set download links
                 document.getElementById('dl4k').href = targetUrl;
                 document.getElementById('dl1080').href = targetUrl;
                 document.getElementById('dl720').href = targetUrl;
